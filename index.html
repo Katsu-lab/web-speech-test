@@ -2,15 +2,22 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Web Speech API</title>
+    <title>Mango Byte Demo</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   </head>
-  <body>
-    <h2>Web Speech API</h2>
-    <button id="start_btn">start</button>
-    <button id="stop_btn">stop</button>
-    <small id="status"></small>
-    <h3>Recognition Result</h3>
-    <textarea id="show_progress" cols="100" rows="1"></textarea>        
+  <body class="text-center">
+    <h2 class="h1 text-3xl">Mango Byte Demo</h2>
+    <button id="start_btn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      Start
+    </button>
+    <button id="stop_btn" class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+      Stop
+    </button>
+    </br>
+    <small id="status" class="mt-10"></small>
+    <h2 class="h2 mt-6 text-xl" onclick="">Progress</h2>
+    <div id="show_progress"></div>  
+    <h2 class="h2 mt-6 text-xl">Result</h2>      
     <div id="show_result"></div>
 </body>
 <script>
@@ -66,7 +73,7 @@ recognition.onresult = function(event){
       if(results[i].isFinal)
         show_result.innerHTML += '<div>'+ results[i][0].transcript +'</div>';
       else
-        show_progress.innerHTML = "[Progress] "+ results[i][0].transcript;
+        show_progress.innerHTML = results[i][0].transcript;
     }
 }
 </script>
